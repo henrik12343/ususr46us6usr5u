@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Tabuada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de notas</title>
 </head>
 <body>
+    <h2>Sistemas de notas</h2>
+    <input type="number" id="nota1" placeholder="Nota1">
+    <input type="number" id="nota2" placeholder="Nota2">
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
 
-<h2>Tabuada</h2>
+    <script>
+        function calcular(){
+            let n1 =Number(document.getElementById("nota1").value);
+            let n2 =Number(document.getElementById("nota2").value);
 
-<input type="number" id="numero" placeholder="Digite um número">
-<button onclick="gerar()">Gerar</button>
+            let media = (n1 + n2) /2;
+            if(media >= 7){
+                document.getElementById("resultado").innerText = "Aprovado! média" + media;
+            
+            }
+            else{
+                document.getElementById("resultado").innerText = "Reprovado! Média" + media ;
+            }
 
-<ul id="lista"></ul>
+        }
 
-<script>
-function gerar(){
 
-let num = Number(document.getElementById("numero").value);
-let lista = document.getElementById("lista");
-
-lista.innerHTML = "";
-
-for (let i = 1; i <= 10; i++) {
-let item = document.createElement("li");
-item.innerText = num + " x " + i + " = " + (num * i);
-lista.appendChild(item);
-}
-}
-</script>
-
+    </script>
+    
 </body>
 </html>
